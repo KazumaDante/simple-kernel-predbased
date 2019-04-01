@@ -1533,14 +1533,15 @@ gc_more:
 stop:
 	SIT_I(sbi)->last_victim[ALLOC_NEXT] = 0;
 	SIT_I(sbi)->last_victim[FLUSH_DEVICE] = init_segno;
-	//trace_f2fs_gc_end(sb, ret, total_freed, sec_freed,
-	//			get_pages(sbi, F2FS_DIRTY_NODES),
-	//			get_pages(sbi, F2FS_DIRTY_DENTS),
-	//			get_pages(sbi, F2FS_DIRTY_IMETA),
-	//			free_sections(sbi),
-	//			free_segments(sbi),
-	//			reserved_segments(sbi),
-	//			prefree_segments(sbi));
+
+	trace_f2fs_gc_end(sb, ret, total_freed, sec_freed,
+				get_pages(sbi, F2FS_DIRTY_NODES),
+				get_pages(sbi, F2FS_DIRTY_DENTS),
+				get_pages(sbi, F2FS_DIRTY_IMETA),
+				free_sections(sbi),
+				free_segments(sbi),
+				reserved_segments(sbi),
+				prefree_segments(sbi));
 
 	mutex_unlock(&sbi->gc_mutex);
 
