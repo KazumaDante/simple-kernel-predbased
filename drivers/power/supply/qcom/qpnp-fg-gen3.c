@@ -3974,6 +3974,7 @@ static int fg_psy_get_property(struct power_supply *psy,
 		pval->intval = chip->ttf.cc_step.sel;
 		break;
 	default:
+		break;
 		pr_err("unsupported property %d\n", psp);
 		rc = -EINVAL;
 		break;
