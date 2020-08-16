@@ -283,12 +283,6 @@ static unsigned int get_next_freq(struct sugov_policy *sg_policy,
 
 	freq = map_util_freq(util, freq, max);
 
-	/*
-	 * Try to get a higher frequency if one is available, given the extra
-	 * power we are ready to spend.
-	 */
-	freq = em_pd_get_higher_freq(pd, freq, cost_margin);
-
 	if (freq == sg_policy->cached_raw_freq && sg_policy->next_freq != UINT_MAX)
 		return sg_policy->next_freq;
 	sg_policy->cached_raw_freq = freq;
