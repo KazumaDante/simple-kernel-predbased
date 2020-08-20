@@ -38,7 +38,7 @@
 #include "mdss_mdp_wfd.h"
 #include "mdss_dsi_clk.h"
 
-#define VSYNC_PERIOD 16
+#define VSYNC_PERIOD 24
 #define BORDERFILL_NDX	0x0BF000BF
 #define CHECK_BOUNDS(offset, size, max_size) \
 	(((size) > (max_size)) || ((offset) > ((max_size) - (size))))
@@ -6265,7 +6265,7 @@ static int __vsync_retire_setup(struct msm_fb_data_type *mfd)
 {
 	struct mdss_overlay_private *mdp5_data = mfd_to_mdp5_data(mfd);
 	char name[24];
-	struct sched_param param = { .sched_priority = 16 };
+	struct sched_param param = { .sched_priority = 24 };
 
 	snprintf(name, sizeof(name), "mdss_fb%d_retire", mfd->index);
 	mdp5_data->vsync_timeline = sw_sync_timeline_create(name);

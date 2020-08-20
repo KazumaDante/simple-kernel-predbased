@@ -1,0 +1,7 @@
+export ARCH=arm64
+make lavender-perf_defconfig
+cp .config arch/arm64/configs/lavender-perf_defconfig
+git add arch/arm64/configs/lavender-perf_defconfig
+git commit -asm "defconfig: Regenerate"
+git config credential.helper store
+git push
