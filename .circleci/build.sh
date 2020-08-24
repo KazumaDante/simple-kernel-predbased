@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/KazuDante89/simple-kernel-predbased -b rebase4lyf  kernel
+git clone --depth=1 https://github.com/KazuDante89/simple-kernel-predbased -b EAS2  kernel
 cd kernel
 git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/KazuDante89/AnyKernel3-EAS AnyKernel
@@ -59,7 +59,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 Simple-Kernel-R10.1_v-lavender-${TANGGAL}.zip *
+    zip -r9 Simple-Kernel-beta-${TANGGAL}.zip *
     cd ..
 }
 sticker
