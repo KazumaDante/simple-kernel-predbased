@@ -3701,9 +3701,6 @@ static int binder_thread_write(struct binder_proc *proc,
 
 	while (ptr < end && thread->return_error.cmd == BR_OK) {
 		int ret;
-		int ref;
-		int binder_context_mgr_node;
-		int binder_get_ref;
 
 		if (get_user(cmd, (uint32_t __user *)ptr))
 			return -EFAULT;
