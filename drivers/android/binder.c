@@ -3733,9 +3733,9 @@ static int binder_thread_write(struct binder_proc *proc,
 							  proc->pid, thread->pid);
 					return -EINVAL;
 				}
-				ref = binder_get_ref_for_node(proc,
+				ret = binder_get_ref_for_node(proc,
 					       binder_context_mgr_node);
-				if (ref->desc != target) {
+				if (ret->desc != target) {
 					binder_user_error("%d:%d tried to acquire reference to desc 0, got %d instead\n",
 						proc->pid, thread->pid,
 						ref->desc);
@@ -3744,7 +3744,7 @@ static int binder_thread_write(struct binder_proc *proc,
 				ref = binder_get_ref(proc, target,
 						     cmd == BC_ACQUIRE ||
 						     cmd == BC_RELEASE);
-			if (ref == NULL) {
+			if (ret == NULL) {
 				binder_user_error("%d:%d refcount change on invalid ref %d\n",
 					proc->pid, thread->pid, target);
 				break;
