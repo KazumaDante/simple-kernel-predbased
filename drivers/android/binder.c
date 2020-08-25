@@ -3721,6 +3721,7 @@ static int binder_thread_write(struct binder_proc *proc,
 			bool strong = cmd == BC_ACQUIRE || cmd == BC_RELEASE;
 			bool increment = cmd == BC_INCREFS || cmd == BC_ACQUIRE;
 			struct binder_ref_data rdata;
+			struct binder_node *binder_context_mgr_node;
 
 			if (get_user(target, (uint32_t __user *)ptr))
 				return -EFAULT;
@@ -3741,7 +3742,7 @@ static int binder_thread_write(struct binder_proc *proc,
 						ref->desc);
 				}
 			} else
-				ref = binder_get_ref(proc, target,
+				ret = binder_free_ref(proc, target,
 						     cmd == BC_ACQUIRE ||
 						     cmd == BC_RELEASE);
 			if (ret == NULL) {
