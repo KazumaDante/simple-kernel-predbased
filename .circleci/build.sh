@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/KazuDante89/simple-kernel-predbased -b EAS4 kernel
+git clone --depth=1 https://github.com/KazuDante89/simple-kernel-predbased -b eas-wip kernel
 cd kernel
 git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/KazuDante89/AnyKernel3-EAS AnyKernel
